@@ -6,7 +6,7 @@ app = Flask(__name__)
 def hello_world():
     return jsonify({'message': 'Olá, Mundo! Bem-vindo à API Flask. '})
 
-
+@app.route('/api/tarefas', methods=['GET'])
 def get_tarefas():
     tarefas = [
         {'id': 1, 'titulo': 'Estudar Flask', 'concluida': False},
