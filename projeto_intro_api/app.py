@@ -5,7 +5,6 @@ from models import db
 from controllers.tarefa_controller import TarefaController
 from routes.tarefas_routes import tarefas_dp
 
-
 def criar_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = Config.SECRET_KEY
@@ -13,13 +12,11 @@ def criar_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db.init_app(app)
-
     app.register_blueprint(tarefas_dp, url_prefix='/api')
-
     return app
 
-    if __name__ == '__main__':
-        app = criar_app()
-        with app.app_context():
-            db.create_all()
-        app.run(debug=True) 
+if __name__ == '__main__':
+    app = criar_app()
+    with app.app_context():
+        db.create_all()
+    app.run(debug=True)
