@@ -8,7 +8,7 @@ def get_listar_tarefas():
     return jsonify([tarefa.to_dict() for tarefa in TarefaController.get_listar_tarefas()])
 
 @tarefas_bp.route('/api/criar_tarefa', methods=['POST'])
-def criar_ctarefa():
+def criar_tarefas():
     dados = request.get_json()
     id = dados.get('id')
     titulo = dados.get('titulo')
