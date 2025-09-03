@@ -13,8 +13,11 @@ class TarefaController:
         return Tarefa.query.get(tarefa_id)
 
     @staticmethod
-    def criar_tarefa(id, tarefa, concluida):
-        pass
+    def criar_tarefas(id, tarefa, concluida):
+        nova_tarefa = Tarefa(id=id, titulo=tarefa['titulo'], concluida=concluida)
+        db.session.add(nova_tarefa)
+        db.session.commit()
+        return nova_tarefa
 
     @staticmethod
     def atualizar_tarefa(self, tarefa_id, dados: dict):

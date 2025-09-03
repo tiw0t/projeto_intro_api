@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from config import Config
 from models import db
 from controllers.tarefa_controller import TarefaController
-from routes.tarefas_routes import tarefas_dp
+from routes.tarefas_routes import tarefas_bp
 
 
 def criar_app():
@@ -13,7 +13,7 @@ def criar_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db.init_app(app)
-    app.register_blueprint(tarefas_dp)
+    app.register_blueprint(tarefas_bp)
     return app
 
 
